@@ -40,7 +40,7 @@ $ make dotfiles-install # optional
 #### Main
 
 * Switch ctrl and caps lock
-* Use <kbd>ctrl + [</kbd> instead of <kbd>esc</kdb>
+* Use <kbd>ctrl + [</kbd> or <kbd>kj</kbd> instead of <kbd>esc</kdb>
 
 #### Moving between visible buffers
 
