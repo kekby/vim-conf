@@ -1,0 +1,24 @@
+---
+
+- hosts: localhost
+  vars:
+    home: /host/home
+    config: "{{ home }}/.bash_profile"
+
+  tasks:
+    - lineinfile: dest="{{ config }}" state=present create=yes
+        line="set -o vi"
+
+    - lineinfile:
+        dest: "{{ config }}"
+        state: present
+        create: true
+        regexp: "fixssh"
+        line: "alias fixssh='eval $(tmux showenv -s SSH_AUTH_SOCK)'"
+
+    - lineinfile: dest="{{ config }}" state=present create=yes
+        line="export PS1='$(__git_ps1) \W\$ '"
+
+    - copy:
+        src: gitconfig
+        dest: "{{ home }}/.gitconfig"
